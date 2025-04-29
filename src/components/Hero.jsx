@@ -29,6 +29,13 @@ const Hero = () => {
     }
   };
 
+  // Handle Enter key press
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handlePasswordSubmit();
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
@@ -37,7 +44,7 @@ const Hero = () => {
       className="hero-container"
       id="home"
     >
-      <div className="hero-overlay"></div> {/* Adding overlay */}
+      <div className="hero-overlay"></div> {/* Adding overlay */ }
       <div className="hero-content">
         <motion.h1
           className="hero-heading"
@@ -47,15 +54,6 @@ const Hero = () => {
         >
           Welcome to TNFP Core
         </motion.h1>
-
-        <motion.p
-          className="hero-subheading"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
-        >
-          Total Notification Form Platform – Streamline how your team edits, prints, and communicates.
-        </motion.p>
 
         {/* Buttons for Admin and Staff */}
         <div className="hero-buttons">
@@ -81,6 +79,7 @@ const Hero = () => {
               placeholder="Enter Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyPress} // Add onKeyDown event listener
             />
             <button onClick={handlePasswordSubmit}>Submit</button>
             {error && <p className="error-message">{error}</p>}

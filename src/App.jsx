@@ -1,14 +1,14 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About'; // Import the About page
-import Services from './components/Services'; // Import the Services page
-import Contact from './components/Contact'; // Import the Contact page
-import AdminDashboard from './components/AdminDashboard'; // Import Admin Dashboard
-import StaffDashboard from './components/StaffDashboard'; // Import Staff Dashboard
-import MediaForum from './components/MediaForum'; // Import MediaForum page
+import About from './components/About';
+import Services from './components/Services';
+import Contact from './components/Contact';
+import AdminDashboard from './components/AdminDashboard';
+import StaffDashboard from './components/StaffDashboard';
+import MediaForum from './components/MediaForum';
+import NotFound from './components/NotFound'; // Import the NotFound component
 
 const App = () => {
   return (
@@ -21,7 +21,8 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/staff/dashboard" element={<StaffDashboard />} />
-        <Route path="/mediaforum" element={<MediaForum />} /> {/* Add this route */}
+        <Route path="/mediaforum" element={<MediaForum />} />
+        <Route path="*" element={<NotFound />} /> {/* Catch-all route for undefined paths */}
       </Routes>
     </Router>
   );
