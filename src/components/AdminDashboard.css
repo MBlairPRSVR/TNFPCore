@@ -1,0 +1,178 @@
+/* AdminDashboard.css */
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(37, 74, 18, 1) 0%, rgba(112, 130, 56, 1) 60%, rgba(255, 145, 0, 1) 100%);
+    animation: lavaLampEffect 15s ease-in-out infinite;
+    background-size: 200% 200%;
+    scroll-behavior: smooth; /* Smooth scroll */
+  }
+  
+  /* Lava Lamp Animation */
+  @keyframes lavaLampEffect {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 0% 100%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  /* Admin Dashboard Container */
+  .admin-dashboard {
+    max-width: 800px; /* Make it more compact */
+    margin: 60px auto 30px; /* Space added at the top */
+    padding: 20px; /* Reduced padding */
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
+    height: auto; /* Allow for smooth scroll */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+  }
+  
+  /* Header */
+  h1 {
+    text-align: center;
+    font-size: 1.8rem; /* Smaller font */
+    color: #2f4f2f;
+    margin-bottom: 20px; /* Reduced margin */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Adjusted spacing */
+  }
+  
+  /* Section Styling */
+  section {
+    margin-bottom: 20px; /* Reduced margin */
+    padding: 15px; /* Reduced padding */
+    border-radius: 10px;
+    background: #f4f7f3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: none; /* No movement on hover */
+  }
+  
+  section h2 {
+    font-size: 1.3rem; /* Adjusted font size */
+    font-weight: 600;
+    color: #3e5c3b;
+    margin-bottom: 15px; /* Reduced margin */
+    border-bottom: 2px solid #708238;
+    padding-bottom: 8px; /* Adjusted padding */
+  }
+  
+  /* Form Elements */
+  textarea, select, input[type="file"] {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 8px; /* Adjusted margin */
+    margin-bottom: 15px; /* Adjusted margin */
+    background-color: #f9f9f9;
+    font-size: 0.95rem; /* Slightly smaller font */
+    transition: border 0.3s ease;
+  }
+  
+  textarea:focus, select:focus, input[type="file"]:focus {
+    border: 1px solid #708238;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(112, 130, 56, 0.3);
+  }
+  
+  /* Button Styles */
+  button {
+    padding: 0.6rem 1.8rem; /* Reduced padding */
+    border: none;
+    border-radius: 8px;
+    background-color: #708238;
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem; /* Slightly smaller font */
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #b2c776;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Animation for Fade In Effect */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      padding: 15px; /* Adjusted padding */
+    }
+  
+    section {
+      padding: 12px; /* Adjusted padding */
+    }
+  
+    button {
+      width: 100%;
+      padding: 1rem 2rem; /* Adjusted padding */
+    }
+  
+    h1 {
+      font-size: 1.6rem; /* Slightly smaller font */
+    }
+  
+    section h2 {
+      font-size: 1.2rem; /* Adjusted font size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-dashboard {
+      padding: 10px; /* Reduced padding */
+    }
+  
+    section {
+      padding: 10px; /* Adjusted padding */
+    }
+  
+    button {
+      padding: 1rem 1.5rem; /* Adjusted padding */
+    }
+  
+    h1 {
+      font-size: 1.4rem; /* Slightly smaller font */
+    }
+  
+    section h2 {
+      font-size: 1rem; /* Adjusted font size */
+    }
+  }
+  

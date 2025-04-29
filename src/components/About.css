@@ -1,0 +1,105 @@
+/* About.css */
+.about-container {
+  position: relative;
+  background-image: url('../assets/tnfpvegetables.webp'); /* Set the new background image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the image fixed during scroll */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  overflow: hidden; /* Ensure no content overflow */
+}
+
+/* Add an overlay to the background image for better text visibility */
+.about-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Place overlay behind the text */
+}
+
+/* Center the text content above the overlay */
+.about-content {
+  text-align: center;
+  z-index: 2; /* Ensure content is on top of the image */
+  position: relative;
+}
+
+/* Heading styles without effect */
+.about-heading {
+  font-size: 4rem; /* Larger font size for the heading */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+/* Paragraph description styling */
+.about-description {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.8;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Button styling */
+.about-button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #f39c12;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.about-button:hover {
+  transform: scale(1.1);
+  background-color: #e74c3c; /* Change color on hover */
+}
+
+/* Responsive media queries */
+@media (max-width: 768px) {
+  .about-heading {
+    font-size: 3rem; /* Adjust heading size for smaller screens */
+  }
+
+  .about-description {
+    font-size: 1.25rem; /* Adjust paragraph text for tablets */
+  }
+
+  .about-button {
+    padding: 10px 20px; /* Adjust button padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-heading {
+    font-size: 2.5rem; /* Adjust heading size for mobile */
+  }
+
+  .about-description {
+    font-size: 1rem; /* Adjust paragraph text for mobile */
+  }
+
+  .about-button {
+    padding: 8px 15px; /* Adjust button padding for mobile */
+  }
+}

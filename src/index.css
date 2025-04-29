@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-olive-lava text-white min-h-screen;
+  background-size: 400% 400%;
+  animation: lava 20s ease infinite;
+}
