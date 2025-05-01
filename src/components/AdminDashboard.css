@@ -1,280 +1,115 @@
-/* Custom CSS for Admin Dashboard */
-
-/* General Body Styles */
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dashboard {
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9fafb;
   min-height: 100vh;
-  background: #f5f5f5;
-  overflow: hidden;
-  position: relative;
 }
 
-/* Background Animation (Groovy and Hypnotizing Effect) */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.wallpaperflare.com/static/103/71/977/olive-garden-food-brown-horizon-wallpaper.jpg') center center/cover;
-  opacity: 0.15;
-  animation: backgroundAnimate 30s infinite linear;
-  z-index: -1;
+.header {
+  margin-bottom: 2rem;
 }
 
-@keyframes backgroundAnimate {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
+.header h2 {
+  color: #4b5563;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-/* Dashboard Container */
-.min-h-screen {
+.clock {
+  color: #9ca3af;
+  font-size: 1.25rem;
+}
+
+.controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.9); /* Slight white overlay */
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 800px; /* Limiting width for better readability */
-  margin-top: -2rem; /* Slightly pulling up */
-}
-
-/* Motion Div Container */
-.motion-div-container {
-  background-color: #fff;
-  color: #333;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  width: 100%;
-  max-width: 48rem;
-  margin-top: 3rem;
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* Title Styling */
-h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  text-align: center;
   margin-bottom: 2rem;
-  color: #4b9e4b; /* Olive green tone */
-  line-height: 1.2;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Grid Layout for Buttons */
-.grid-button-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-  margin-bottom: 5rem;
-  justify-items: center; /* Centers buttons */
-}
-
-@media (min-width: 768px) {
-  .grid-button-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Button Styling */
-button {
-  padding: 10px 10px; /* Reduced padding */
-  font-weight: 600;
-  border-radius: 1.25rem; /* Slightly rounded corners */
-  background-color: #4b9e4b; /* Olive green */
-  color: white;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow for smaller button */
-  font-size: 0.875rem; /* Reduced font size */
-  max-width: 150px; /* Reduced max width */
-  margin: 0 ;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover Effect */
-button:hover {
-  opacity: 1.9;
-  background-color: #3b7d3b; /* Darker olive green on hover */
-}
-
-/* Focus Effect */
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(75, 158, 75, 0.4); /* Green outline when focused */
-}
-
-/* Active Effect */
-button:active {
-  transform: scale(0.02); /* Slightly smaller scale on click */
-  background-color: #357a35; /* Even darker olive green when clicked */
-}
-
-
-/* Additional Button States */
-button:disabled {
-  background-color: #d1d5db; /* Disabled button with light gray */
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-button:disabled:hover {
-  transform: none; /* Remove hover effect on disabled buttons */
-}
-
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-  .grid-button-container {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  button {
-    max-width: 150px; /* Increase button size slightly on larger screens */
-  }
-}
-
-
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-  .grid-button-container {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  button {
-    max-width: 150px; /* Increase button size on larger screens */
-  }
-}
-
-
-/* Message Form */
-textarea {
-  width: 100%;
-  height: 8rem;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  background-color: #f3f4f6;
-  color: #333;
-  border: 1px solid #d1d5db;
-  resize: none;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  transition: border 0.3s ease;
-}
-
-textarea:focus {
-  border-color: #4b9e4b; /* Olive green */
-  outline: none;
-}
-
-/* Message Send Section */
-.message-send-container {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.message-send-container button {
-  padding: 1rem 2rem;
-  font-weight: 600;
-  border-radius: 1rem;
-  font-size: 1.125rem;
-}
-
-.message-send-container input[type="file"] {
-  display: none;
-}
-
-/* Video Call Section */
-.video-call-container {
-  margin-top: 3rem;
-}
-
-.video-call-container h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
+.input-field {
+  padding: 0.5rem 1rem;
   margin-bottom: 1rem;
-  color: #4b9e4b; /* Olive green */
-}
-
-.video-call-container p {
   font-size: 1rem;
-  color: #6b7280; /* Tailwind gray-500 */
-  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 60%;
 }
 
-.video-call-container button {
-  padding: 1rem 2rem;
-  font-weight: 600;
-  border-radius: 1rem;
-  background-color: #4b9e4b; /* Olive green */
-  color: white;
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.video-call-container button:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
+.add-chart-btn {
+  background-color: #3b82f6;
+  color: #fff;
 }
 
-/* File Upload Button */
-.file-upload-btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #e5e7eb;
-  color: black;
-  border-radius: 1rem;
-  transition: background-color 0.3s ease;
+.add-chart-btn:hover {
+  background-color: #2563eb;
 }
 
-.file-upload-btn:hover {
-  background-color: #d1d5db;
+.print-btn {
+  background-color: #10b981;
+  color: #fff;
 }
 
-/* Additional Utility Classes */
-.text-green-600 {
-  color: #4b9e4b;
+.print-btn:hover {
+  background-color: #059669;
 }
 
-.text-gray-600 {
-  color: #6b7280;
+.media-forum-btn {
+  background-color: #f59e0b;
+  color: #fff;
 }
 
-/* Centering all content */
-.center-content {
+.media-forum-btn:hover {
+  background-color: #d97706;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-section {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .input-field {
+    width: 80%;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
 }

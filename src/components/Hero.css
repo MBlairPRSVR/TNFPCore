@@ -119,7 +119,7 @@
 }
 
 .hero-button:hover {
-  background-color: #7c9e3f;
+  background-color: #6a8834; /* Slightly darker shade for hover effect */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   transform: none;
 }
@@ -166,6 +166,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero-container {
+    background-attachment: scroll; /* Disable fixed background on mobile */
+  }
+
   .hero-heading {
     font-size: 2.2rem;
   }

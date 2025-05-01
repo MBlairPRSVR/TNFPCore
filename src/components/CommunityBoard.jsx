@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './CommunityBoard.css';
 
 const CommunityBoard = () => {
-  const [eventTitle, setEventTitle] = useState('');
-  const [eventDescription, setEventDescription] = useState('');
-  const [file, setFile] = useState(null);
+  const [eventTitle, setEventTitle] = React.useState('');
+  const [eventDescription, setEventDescription] = React.useState('');
+  const [file, setFile] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files[0];
@@ -13,7 +15,6 @@ const CommunityBoard = () => {
 
     setFile(selectedFile);
 
-    // Handle text file for event title and description
     if (selectedFile.type === "text/plain") {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -28,8 +29,7 @@ const CommunityBoard = () => {
 
   const renderMediaPreview = () => {
     if (!file) return null;
-
-    const fileType = file.type.split('/')[0]; // Get the file type (image, video)
+    const fileType = file.type.split('/')[0];
 
     if (fileType === 'image') {
       return <img className="event-image-preview" src={URL.createObjectURL(file)} alt="Event preview" />;
@@ -63,15 +63,6 @@ const CommunityBoard = () => {
       </div>
 
       <div className="event-board">
-        <motion.h2
-          className="event-board-heading"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-        >
-          
-        </motion.h2>
-
         <motion.div
           className="event-card"
           key={eventTitle}
@@ -84,6 +75,15 @@ const CommunityBoard = () => {
           {renderMediaPreview()}
         </motion.div>
       </div>
+
+      <motion.button
+        className="volunteer-button"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => navigate('/volunteer')}
+      >
+        Volunteer
+      </motion.button>
     </motion.div>
   );
 };
