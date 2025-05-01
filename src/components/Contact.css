@@ -1,60 +1,130 @@
-/* Contact.css */
-
+/* Contact Section Styles */
 .contact-container {
-    background-color: #f8f7f2; /* light, creamy beige */
-    min-height: 100vh;
-    padding: 0 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Align items to the center vertically */
+  flex-direction: column; /* Stack elements vertically */
+  padding-top: 0; /* Remove extra space from top */
+  padding-bottom: 0; /* Remove space at the bottom */
+  height: 100vh; /* Ensure the container takes full viewport height */
+}
+
+.lava-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/lava.png');
+  background-color: #ff5722; /* Lava red-orange */
+  background-size: cover;
+  animation: flow 40s linear infinite;
+  opacity: 0.1; /* Less subtle */
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0 0;
   }
-  
-  .contact-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 0;
+  100% {
+    background-position: 1000px 1000px;
   }
-  
+}
+
+/* Contact heading at top without animation */
+.contact-heading {
+  font-size: 3rem; /* Significantly smaller font size */
+  text-align: center; /* Center text */
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  top: 0; /* Keep it at the top */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;
+  margin-bottom: 0.5rem; /* Smaller space below the heading */
+}
+
+/* Contact content */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1rem; /* Reduced padding */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center items horizontally */
+  overflow: hidden;
+  height: 100%; /* Full height */
+}
+
+/* Contact items with ease in and out */
+.contact-item {
+  font-size: 1.25rem; /* Significantly smaller text */
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem; /* Adjusted margin */
+  opacity: 0;
+  animation: contactItemAnimation 16s ease-in-out infinite; /* 8s loop, 8s delay */
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Keyframes for ease-in and ease-out */
+@keyframes contactItemAnimation {
+  0%, 100% {
+    opacity: 0; /* Start and end with opacity 0 */
+    transform: translateY(20px); /* Slightly off-screen */
+  }
+  25%, 75% {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* On-screen */
+  }
+}
+
+/* Delay each item for smooth sequential animation */
+.contact-item:nth-child(1) {
+  animation-delay: 0s; /* First item */
+}
+
+.contact-item:nth-child(2) {
+  animation-delay: 8s; /* Second item */
+}
+
+.contact-item:nth-child(3) {
+  animation-delay: 16s; /* Third item */
+}
+
+.contact-item:nth-child(4) {
+  animation-delay: 24s; /* Fourth item */
+}
+
+.contact-item a {
+  color: #7a9e7e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #ff5722;
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .contact-heading {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #3e4e3d; /* rich olive green */
-    font-weight: 700;
+    font-size: 4rem; /* Smaller font size for mobile */
   }
-  
+
   .contact-item {
-    background-color: #ffffff;
-    border-left: 6px solid #7a9e7e; /* sage green accent */
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem; /* Adjust font size */
   }
-  
-  .contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  }
-  
-  .contact-item h2 {
-    font-size: 1.6rem;
-    color: #2e3d2f; /* darker olive */
-    margin-bottom: 0.75rem;
-  }
-  
-  .contact-item p {
-    font-size: 1rem;
-    color: #555555;
-    line-height: 1.6;
-  }
-  
-  .contact-item a {
-    color: #3e4e3d;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .contact-item a:hover {
-    text-decoration: underline;
-  }
-  
+}

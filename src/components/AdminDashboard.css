@@ -1,178 +1,280 @@
-/* AdminDashboard.css */
+/* Custom CSS for Admin Dashboard */
 
-/* Global Styles */
+/* General Body Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    height: 100vh;
-    background: radial-gradient(circle, rgba(37, 74, 18, 1) 0%, rgba(112, 130, 56, 1) 60%, rgba(255, 145, 0, 1) 100%);
-    animation: lavaLampEffect 15s ease-in-out infinite;
-    background-size: 200% 200%;
-    scroll-behavior: smooth; /* Smooth scroll */
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Animation (Groovy and Hypnotizing Effect) */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.wallpaperflare.com/static/103/71/977/olive-garden-food-brown-horizon-wallpaper.jpg') center center/cover;
+  opacity: 0.15;
+  animation: backgroundAnimate 30s infinite linear;
+  z-index: -1;
+}
+
+@keyframes backgroundAnimate {
+  0% {
+    background-position: 0 0;
   }
-  
-  /* Lava Lamp Animation */
-  @keyframes lavaLampEffect {
-    0% {
-      background-position: 0% 0%;
-    }
-    25% {
-      background-position: 100% 50%;
-    }
-    50% {
-      background-position: 0% 100%;
-    }
-    75% {
-      background-position: 50% 0%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
+  100% {
+    background-position: 100% 100%;
   }
-  
-  /* Admin Dashboard Container */
-  .admin-dashboard {
-    max-width: 800px; /* Make it more compact */
-    margin: 60px auto 30px; /* Space added at the top */
-    padding: 20px; /* Reduced padding */
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-    overflow: hidden;
-    height: auto; /* Allow for smooth scroll */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
+}
+
+/* Dashboard Container */
+.min-h-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight white overlay */
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px; /* Limiting width for better readability */
+  margin-top: -2rem; /* Slightly pulling up */
+}
+
+/* Motion Div Container */
+.motion-div-container {
+  background-color: #fff;
+  color: #333;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 48rem;
+  margin-top: 3rem;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Title Styling */
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4b9e4b; /* Olive green tone */
+  line-height: 1.2;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
   }
-  
-  /* Header */
-  h1 {
-    text-align: center;
-    font-size: 1.8rem; /* Smaller font */
-    color: #2f4f2f;
-    margin-bottom: 20px; /* Reduced margin */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Adjusted spacing */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Section Styling */
-  section {
-    margin-bottom: 20px; /* Reduced margin */
-    padding: 15px; /* Reduced padding */
-    border-radius: 10px;
-    background: #f4f7f3;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: none; /* No movement on hover */
+}
+
+/* Grid Layout for Buttons */
+.grid-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-bottom: 5rem;
+  justify-items: center; /* Centers buttons */
+}
+
+@media (min-width: 768px) {
+  .grid-button-container {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  section h2 {
-    font-size: 1.3rem; /* Adjusted font size */
-    font-weight: 600;
-    color: #3e5c3b;
-    margin-bottom: 15px; /* Reduced margin */
-    border-bottom: 2px solid #708238;
-    padding-bottom: 8px; /* Adjusted padding */
+}
+
+/* Button Styling */
+button {
+  padding: 10px 10px; /* Reduced padding */
+  font-weight: 600;
+  border-radius: 1.25rem; /* Slightly rounded corners */
+  background-color: #4b9e4b; /* Olive green */
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow for smaller button */
+  font-size: 0.875rem; /* Reduced font size */
+  max-width: 150px; /* Reduced max width */
+  margin: 0 ;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+button:hover {
+  opacity: 1.9;
+  background-color: #3b7d3b; /* Darker olive green on hover */
+}
+
+/* Focus Effect */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(75, 158, 75, 0.4); /* Green outline when focused */
+}
+
+/* Active Effect */
+button:active {
+  transform: scale(0.02); /* Slightly smaller scale on click */
+  background-color: #357a35; /* Even darker olive green when clicked */
+}
+
+
+/* Additional Button States */
+button:disabled {
+  background-color: #d1d5db; /* Disabled button with light gray */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:disabled:hover {
+  transform: none; /* Remove hover effect on disabled buttons */
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+  .grid-button-container {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  /* Form Elements */
-  textarea, select, input[type="file"] {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-top: 8px; /* Adjusted margin */
-    margin-bottom: 15px; /* Adjusted margin */
-    background-color: #f9f9f9;
-    font-size: 0.95rem; /* Slightly smaller font */
-    transition: border 0.3s ease;
-  }
-  
-  textarea:focus, select:focus, input[type="file"]:focus {
-    border: 1px solid #708238;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(112, 130, 56, 0.3);
-  }
-  
-  /* Button Styles */
+
   button {
-    padding: 0.6rem 1.8rem; /* Reduced padding */
-    border: none;
-    border-radius: 8px;
-    background-color: #708238;
-    color: white;
-    cursor: pointer;
-    font-size: 0.95rem; /* Slightly smaller font */
-    transition: background 0.3s ease, transform 0.2s ease;
+    max-width: 150px; /* Increase button size slightly on larger screens */
   }
-  
-  button:hover {
-    background-color: #b2c776;
-    transform: scale(1.05);
+}
+
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+  .grid-button-container {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  button:active {
-    transform: scale(0.98);
+
+  button {
+    max-width: 150px; /* Increase button size on larger screens */
   }
-  
-  /* Animation for Fade In Effect */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    .admin-dashboard {
-      padding: 15px; /* Adjusted padding */
-    }
-  
-    section {
-      padding: 12px; /* Adjusted padding */
-    }
-  
-    button {
-      width: 100%;
-      padding: 1rem 2rem; /* Adjusted padding */
-    }
-  
-    h1 {
-      font-size: 1.6rem; /* Slightly smaller font */
-    }
-  
-    section h2 {
-      font-size: 1.2rem; /* Adjusted font size */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .admin-dashboard {
-      padding: 10px; /* Reduced padding */
-    }
-  
-    section {
-      padding: 10px; /* Adjusted padding */
-    }
-  
-    button {
-      padding: 1rem 1.5rem; /* Adjusted padding */
-    }
-  
-    h1 {
-      font-size: 1.4rem; /* Slightly smaller font */
-    }
-  
-    section h2 {
-      font-size: 1rem; /* Adjusted font size */
-    }
-  }
-  
+}
+
+
+/* Message Form */
+textarea {
+  width: 100%;
+  height: 8rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+  color: #333;
+  border: 1px solid #d1d5db;
+  resize: none;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  transition: border 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #4b9e4b; /* Olive green */
+  outline: none;
+}
+
+/* Message Send Section */
+.message-send-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.message-send-container button {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  font-size: 1.125rem;
+}
+
+.message-send-container input[type="file"] {
+  display: none;
+}
+
+/* Video Call Section */
+.video-call-container {
+  margin-top: 3rem;
+}
+
+.video-call-container h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #4b9e4b; /* Olive green */
+}
+
+.video-call-container p {
+  font-size: 1rem;
+  color: #6b7280; /* Tailwind gray-500 */
+  margin-bottom: 1rem;
+}
+
+.video-call-container button {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  background-color: #4b9e4b; /* Olive green */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.video-call-container button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* File Upload Button */
+.file-upload-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #e5e7eb;
+  color: black;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-btn:hover {
+  background-color: #d1d5db;
+}
+
+/* Additional Utility Classes */
+.text-green-600 {
+  color: #4b9e4b;
+}
+
+.text-gray-600 {
+  color: #6b7280;
+}
+
+/* Centering all content */
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

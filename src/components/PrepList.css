@@ -1,0 +1,193 @@
+/* Light mode */
+body.light-mode {
+    background-color: #f0f4ff;
+    color: #333;
+  }
+  
+  /* Dark mode */
+  body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eee;
+  }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Wrapper for layout */
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 80px;
+  }
+  
+  /* Notebook container */
+  .notebook-container {
+    width: 16.8cm;
+    min-height: 23.8cm;
+    height: auto;
+    margin: auto;
+    background: repeating-linear-gradient(
+      white,
+      white 28px,
+      #e3f2fd 28px,
+      #e3f2fd 30px
+    );
+    border-left: 5px solid #d32f2f;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    position: relative;
+    overflow-y: auto;
+    margin-bottom: 3rem;
+  }
+  
+  /* Dark mode notebook */
+  body.dark-mode .notebook-container {
+    background: repeating-linear-gradient(
+      #2c2c2c,
+      #2c2c2c 28px,
+      #3a3a3a 28px,
+      #3a3a3a 30px
+    );
+    border-left-color: #ff5252;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-weight: bold;
+    color: inherit;
+  }
+  
+  /* Editable text area */
+  .editable-textarea {
+    width: 100%;
+    min-height: 18cm;
+    max-height: none;
+    background: transparent;
+    font-size: 1.1rem;
+    border: none;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+    line-height: 2rem;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: inherit;
+    margin-top: 0.5rem;
+    padding: 0;
+    overflow-y: auto;
+  }
+  
+  .editable-textarea:focus::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 1.2em;
+    background: currentColor;
+    animation: blink 1s steps(2, start) infinite;
+    vertical-align: bottom;
+    margin-left: 1px;
+  }
+  
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  
+  /* Print Button */
+  .print-button {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .print-button:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(38, 132, 255, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(38, 132, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(38, 132, 255, 0); }
+  }
+  
+  /* Theme toggle button */
+  .toggle-theme {
+    background: transparent;
+    border: 2px solid currentColor;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  
+  .toggle-theme:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Toolbar below notebook */
+  .bottom-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Print styles */
+  @media print {
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+    }
+  
+    .notebook-container {
+      width: 100%;
+      margin: 0;
+      padding: 1rem;
+      box-shadow: none;
+      border: none;
+      min-height: 23.8cm;
+      height: auto;
+    }
+  
+    .bottom-toolbar,
+    .print-button,
+    .toggle-theme {
+      display: none;
+    }
+  
+    .editable-textarea {
+      font-size: 12pt;
+      line-height: 1.5;
+    }
+  }
+  

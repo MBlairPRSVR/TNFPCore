@@ -1,9 +1,8 @@
-/* Hero.css */
 .hero-container {
   position: relative;
-  background-image: url('../assets/tnfpvegetables.webp');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(45deg, rgba(255, 0, 150, 0.6), rgba(0, 204, 255, 0.6));
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
   background-attachment: fixed;
   min-height: 100vh;
   display: flex;
@@ -12,8 +11,18 @@
   color: white;
   padding: 20px;
   overflow: hidden;
-  transition: background-position 1s ease-out;
-  will-change: transform;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-overlay {
@@ -30,27 +39,61 @@
   text-align: center;
   z-index: 2;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
 }
 
+/* Logo */
+.hero-logo {
+  width: 300px;
+  max-width: 90vw;
+  margin-bottom: 40px;
+  filter: none;
+}
+
+.svg-logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Typewriter Heading */
 .hero-heading {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   opacity: 1;
+  max-width: 800px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 4s steps(30, end) forwards, blink 0.8s step-end infinite;
 }
 
-.hero-subheading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  opacity: 0.9;
-  max-width: 700px;
-  margin: 20px auto;
-  line-height: 1.8;
-  color: white;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: white;
+  }
+  50% {
+    border-color: transparent;
+  }
 }
 
 .hero-buttons {
@@ -72,16 +115,13 @@
   background-color: #7c9e3f;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-button:hover {
-  background-color: tomato;
-  box-shadow: 0 0 15px rgba(255, 99, 71, 0.7);
-}
-
-.staff-button {
-  background-color: #a4c76e;
+  background-color: #7c9e3f;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transform: none;
 }
 
 .password-prompt {
@@ -89,13 +129,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .password-prompt input {
   padding: 10px;
   margin: 10px;
   font-size: 16px;
-  width: 250px;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -122,22 +164,37 @@
   margin-top: 10px;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .hero-heading {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
-  .hero-subheading {
-    font-size: 1.25rem;
+  .hero-logo {
+    width: 240px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-button {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 10px;
+  }
+
+  .password-prompt {
+    max-width: 90%;
   }
 }
 
 @media (max-width: 480px) {
   .hero-heading {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
-  .hero-subheading {
-    font-size: 1rem;
+  .hero-logo {
+    width: 180px;
   }
 }

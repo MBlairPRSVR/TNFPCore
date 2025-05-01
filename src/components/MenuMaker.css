@@ -1,0 +1,224 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  /* Container for the menu maker */
+  .menu-maker-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Menu Title */
+  .menu-title {
+    text-align: center;
+    font-size: 3.0rem;
+    color: #4a8a4a;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    color: #382;
+    text-shadow: none; /* Removed text shadow */
+  }
+  
+  /* Horizontal Layout for Days */
+  .menu-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.0rem;
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+  
+  .menu-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 150px;
+    flex-grow: 1; /* Ensure equal width for all days */
+  }
+  
+  /* Day label styles */
+  .menu-day-label {
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-bottom: 0.00rem;
+    text-align: center;
+    color: #333;
+    text-transform: capitalize;
+  }
+  
+  /* Menu input with fire animation and line paper effect */
+  .menu-day-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    height: 120px;
+    resize: none;
+    background: linear-gradient(white 50%, #e1e1e1 50%) 0 50%;
+    background-size: 100% 12px;
+    line-height: 20px;
+    transition: border-color 0.3s ease;
+    position: relative;
+    animation: fire 0.5s ease-in-out infinite;
+    word-wrap: break-word; /* Prevent overflow */
+    overflow: none; /* Prevent scrollbars */
+    font-size: calc(0.2rem + 0.5vw); /* Responsive font sizing */
+  }
+  
+  /* Fire animation on input */
+  @keyframes fire {
+    0% { box-shadow: none; }
+    50% { box-shadow: none; }
+    100% { box-shadow: none; }
+  }
+  
+  /* Focus state of input */
+  .menu-day-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: none; /* Removed box-shadow on focus */
+  }
+  
+  /* Button styles */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-right: 20rem;
+    margin-left: 20rem;
+    gap: 2rem;
+  }
+  
+  .submit-btn,
+  .print-btn {
+    padding: 12px 12px 12px 12px;
+    font-size: .8rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px; /* Fully round buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase; /* Uppercase text for extra impact */
+    letter-spacing: 1px; /* Slightly increase letter spacing */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .submit-btn:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Increased shadow effect */
+    transform: translateY(-4px); /* Smooth lift effect */
+  }
+  
+  .print-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .print-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Increased shadow effect */
+    transform: translateY(-4px); /* Smooth lift effect */
+  }
+  
+  /* Optional: Add a glowing effect */
+  .submit-btn:focus,
+  .print-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.8); /* Glowing effect on focus */
+  }
+  
+  /* Menu Preview Section Styles */
+  .menu-preview {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: #f9f9f9;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-preview h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .menu-preview-item {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+  
+  .menu-preview-item h3 {
+    font-size: 1.6rem;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .menu-preview-item p {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+  
+  /* Print Page Style */
+  @media print {
+    body {
+      font-size: 16px;
+      background-color: white;
+      color: black;
+    }
+  
+    .menu-maker-container {
+      box-shadow: none;
+      padding: 1rem;
+      margin: 0;
+    }
+  
+    .menu-preview {
+      padding: 1rem;
+      display: none; /* Hide the menu preview when printing */
+    }
+  
+    .navbar {
+      display: none; /* Hide the navbar when printing */
+    }
+  
+    .submit-btn,
+    .print-btn {
+      display: none;
+    }
+  }
+  

@@ -1,42 +1,167 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* styles.css */
+
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the menu maker */
+.menu-maker-container {
+  max-width: 1000px;
+  margin: 2rem auto;
   padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-title {
   text-align: center;
+  font-size: 2.5rem;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Horizontal Layout for Days */
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-day-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.menu-day-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  height: 120px;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.menu-day-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styles */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.submit-btn,
+.print-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.print-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.print-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Menu Preview Section Styles */
+.menu-preview {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-preview h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-preview-item {
+  margin-bottom: 1rem;
+}
+
+.menu-preview-item h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.menu-preview-item p {
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Print Page Style */
+@media print {
+  body {
+    font-size: 16px;
+    background-color: white;
+    color: black;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu-maker-container {
+    box-shadow: none;
+    padding: 1rem;
+    margin: 0;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .menu-preview {
+    padding: 1rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .submit-btn,
+  .print-btn {
+    display: none;
+  }
 }

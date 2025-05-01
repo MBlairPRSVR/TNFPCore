@@ -1,20 +1,41 @@
-/* About.css */
-.about-container {
+/* Full About.css */
+
+.about-wrapper {
   position: relative;
-  background-image: url('../assets/tnfpvegetables.webp'); /* Set the new background image */
+  min-height: 100vh;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animated background image */
+.background-image {
+  background-image: url('../assets/tnfpgourmet.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Keeps the image fixed during scroll */
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  transition: background-position 2s ease-in-out, background-size 2s ease-in-out;
+}
+
+/* About container with overlay */
+.about-container {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   padding: 20px;
-  overflow: hidden; /* Ensure no content overflow */
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeInContent 2s ease-out forwards; /* Ensure easing works better */
 }
 
-/* Add an overlay to the background image for better text visibility */
+/* Overlay */
 .about-container::after {
   content: '';
   position: absolute;
@@ -23,24 +44,28 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: 1; /* Place overlay behind the text */
+  z-index: 1;
 }
 
-/* Center the text content above the overlay */
+/* Content above overlay */
 .about-content {
   text-align: center;
-  z-index: 2; /* Ensure content is on top of the image */
+  z-index: 2;
   position: relative;
+  opacity: 0;
+  animation: fadeInContent 2s ease-out forwards 0.5s; /* Delay for staggered effect */
 }
 
-/* Heading styles without effect */
+/* Heading styles */
 .about-heading {
-  font-size: 4rem; /* Larger font size for the heading */
+  font-size: 4rem;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
   letter-spacing: 3px;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInContent 2s ease-out forwards 1s; /* Slight delay */
 }
 
 /* Paragraph description styling */
@@ -52,6 +77,8 @@
   margin: 20px auto;
   line-height: 1.8;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  animation: fadeInContent 2s ease-out forwards 1.5s; /* Delay for staggered effect */
 }
 
 /* Button styling */
@@ -68,38 +95,62 @@
   text-transform: uppercase;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  animation: fadeInContent 2s ease-out forwards 2s; /* Delay for staggered effect */
 }
 
 .about-button:hover {
   transform: scale(1.1);
-  background-color: #e74c3c; /* Change color on hover */
+  background-color: #e74c3c;
 }
 
-/* Responsive media queries */
+/* Responsive styles */
 @media (max-width: 768px) {
   .about-heading {
-    font-size: 3rem; /* Adjust heading size for smaller screens */
+    font-size: 3rem;
   }
 
   .about-description {
-    font-size: 1.25rem; /* Adjust paragraph text for tablets */
+    font-size: 1.25rem;
   }
 
   .about-button {
-    padding: 10px 20px; /* Adjust button padding for smaller screens */
+    padding: 10px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .about-heading {
-    font-size: 2.5rem; /* Adjust heading size for mobile */
+    font-size: 2.5rem;
   }
 
   .about-description {
-    font-size: 1rem; /* Adjust paragraph text for mobile */
+    font-size: 1rem;
   }
 
   .about-button {
-    padding: 8px 15px; /* Adjust button padding for mobile */
+    padding: 8px 15px;
+  }
+}
+
+/* Keyframes for smooth fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for content fade-in */
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

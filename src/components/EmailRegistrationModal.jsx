@@ -36,7 +36,7 @@ const EmailRegistrationModal = ({ isOpen, onClose }) => {
           &times;
         </button>
         <h2 className="text-3xl font-bold mb-6 text-center">Register Staff</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <input
             type="text"
             name="name"
