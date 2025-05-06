@@ -11,8 +11,15 @@
   padding-top: 0; /* Remove extra space from top */
   padding-bottom: 0; /* Remove space at the bottom */
   height: 100vh; /* Ensure the container takes full viewport height */
+  background-image: url('C:/Users/mblai/Desktop/tnpf_core/frontend/src/assets/garden.jpg'); /* Update with your local image path */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: blur(10px); /* Initial blur effect */
+  animation: clearBlur 3s ease-out forwards; /* Smoothly clear the blur */
 }
 
+/* Lava Background (optional overlay) */
 .lava-background {
   position: absolute;
   top: 0;
@@ -37,11 +44,21 @@
   }
 }
 
-/* Contact heading at top without animation */
+/* Clear Blur Animation */
+@keyframes clearBlur {
+  0% {
+    filter: blur(10px); /* Initial blur */
+  }
+  100% {
+    filter: blur(0); /* Final clear */
+  }
+}
+
+/* Contact heading at top */
 .contact-heading {
-  font-size: 3rem; /* Significantly smaller font size */
+  font-size: 3rem; /* Smaller font size */
   text-align: center; /* Center text */
-  color: #fff;
+  color: #e4007f; /* Rose red color */
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
@@ -49,73 +66,51 @@
   white-space: nowrap; /* Prevent text wrapping */
   overflow: hidden;
   margin-bottom: 0.5rem; /* Smaller space below the heading */
+  text-shadow: 2px 2px 4px #ffffff; /* White outline effect */
 }
 
-/* Contact content */
+/* Contact content (Blurred Card) */
 .contact-content {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 1rem 1rem; /* Reduced padding */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for the card */
+  backdrop-filter: blur(10px); /* Apply blur effect on the background */
   display: flex;
   flex-direction: column; /* Align items vertically */
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center items horizontally */
   overflow: hidden;
-  height: 100%; /* Full height */
+  height: auto;
 }
 
-/* Contact items with ease in and out */
+/* Contact items (Static, no animation) */
 .contact-item {
-  font-size: 1.25rem; /* Significantly smaller text */
+  font-size: 1.1rem; /* Smaller text */
   text-align: center;
-  color: #fff;
+  color: #e4007f; /* Rose red color */
   margin-bottom: 1rem; /* Adjusted margin */
-  opacity: 0;
-  animation: contactItemAnimation 16s ease-in-out infinite; /* 8s loop, 8s delay */
   white-space: nowrap; /* Prevents text wrapping */
+  text-shadow: 2px 2px 4px #ffffff; /* White outline effect */
 }
 
-/* Keyframes for ease-in and ease-out */
-@keyframes contactItemAnimation {
-  0%, 100% {
-    opacity: 0; /* Start and end with opacity 0 */
-    transform: translateY(20px); /* Slightly off-screen */
-  }
-  25%, 75% {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* On-screen */
-  }
-}
-
-/* Delay each item for smooth sequential animation */
-.contact-item:nth-child(1) {
-  animation-delay: 0s; /* First item */
-}
-
-.contact-item:nth-child(2) {
-  animation-delay: 8s; /* Second item */
-}
-
-.contact-item:nth-child(3) {
-  animation-delay: 16s; /* Third item */
-}
-
-.contact-item:nth-child(4) {
-  animation-delay: 24s; /* Fourth item */
-}
-
+/* Styling for email links */
 .contact-item a {
-  color: #7a9e7e;
+  color: #ffffff; /* Bright white color */
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for color and shadow */
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
 }
 
 .contact-item a:hover {
-  color: #ff5722;
+  color: #ff5722; /* Lava red color on hover */
   text-decoration: underline;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px #ff5722; /* Stronger hover shadow */
 }
 
 /* Responsive styles */
@@ -126,5 +121,9 @@
 
   .contact-item {
     font-size: 1rem; /* Adjust font size */
+  }
+
+  .contact-content {
+    padding: 1rem; /* Adjust padding for smaller screens */
   }
 }

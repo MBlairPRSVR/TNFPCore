@@ -39,50 +39,51 @@ const CommunityBoard = () => {
       return <video className="event-video-preview" controls src={URL.createObjectURL(file)} />;
     }
 
-    return <p>File preview is not supported for this type.</p>;
+    return <p>File preview not supported.</p>;
   };
 
   return (
-    <motion.div
-      className="community-board"
-      initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
-      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-      transition={{ duration: 1.2, ease: "easeOut", type: "spring", stiffness: 60 }}
+    <motion.div 
+      className="community-board-container"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2 }}
     >
+      <div className="olive-overlay" />
+      
       <motion.h1
-        className="community-board-heading"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="community-board-title"
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
       >
-        Community Board
+        🍇 TNFP Community Board 🍷
       </motion.h1>
 
-      <div className="event-form">
-        <input type="file" accept=".txt, .jpg, .jpeg, .png, .mp4, .mov, .avi" onChange={handleFileUpload} />
-      </div>
-
-      <div className="event-board">
-        <motion.div
-          className="event-card"
-          key={eventTitle}
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
-          <h3>{eventTitle || 'Your event title will appear here'}</h3>
-          <p>{eventDescription || 'Your event description will appear after uploading a file.'}</p>
+      <motion.div 
+        className="community-upload-card"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <input
+          className="file-input"
+          type="file"
+          accept=".txt, .jpg, .jpeg, .png, .mp4, .mov, .avi"
+          onChange={handleFileUpload}
+        />
+        <div className="event-details">
           {renderMediaPreview()}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
 
       <motion.button
         className="volunteer-button"
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => navigate('/volunteer')}
       >
-        Volunteer
+        Become a Volunteer 🌿
       </motion.button>
     </motion.div>
   );

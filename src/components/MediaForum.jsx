@@ -1,18 +1,8 @@
-// MediaForum.jsx
-import React, { useState, useEffect, useRef } from 'react';
-import './mediaforum.css';
+import React, { useState } from 'react';
 
 const MediaForum = () => {
   const [posts, setPosts] = useState([]);
   const [formData, setFormData] = useState({ username: '', content: '', file: null });
-  const textareaRef = useRef(null);
-  const fileInputRef = useRef(null);
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -25,89 +15,87 @@ const MediaForum = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.content) return;
+    if (!formData.username || (!formData.content && !formData.file)) return;
 
     const newPost = {
       id: Date.now(),
       username: formData.username,
       content: formData.content,
       file: formData.file ? URL.createObjectURL(formData.file) : null,
-      fileType: formData.file ? formData.file.type : null
+      fileType: formData.file ? formData.file.type : null,
+      fileName: formData.file ? formData.file.name : null,
     };
 
     setPosts([newPost, ...posts]);
     setFormData({ username: '', content: '', file: null });
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
+  const renderFile = (type, url, name) => {
+    if (type?.startsWith('image/')) {
+      return <img src={url} alt="upload" className="mt-3 max-h-64 rounded-lg shadow-md" />;
+    } else if (type?.startsWith('video/')) {
+      return <video controls src={url} className="mt-3 max-h-64 rounded-lg shadow-md" />;
+    } else {
+      return (
+        <a
+          href={url}
+          download={name}
+          className="mt-3 inline-block text-olive-700 hover:underline"
+        >
+          📎 Download {name}
+        </a>
+      );
     }
   };
 
   return (
-    <div className="media-forum-container">
-      <h1 className="media-header">🌀 Media Forum 1998 💾</h1>
-      <div className="media-clock">{time.toLocaleTimeString()}</div>
+    <div className="min-h-screen bg-olive-50 flex items-center justify-center py-12 px-4">
+      <div className="w-full max-w-3xl bg-white p-8 rounded-2xl shadow-xl border border-olive-200">
+        <h1 className="text-4xl font-bold text-olive-800 text-center mb-8">🍃 Media Forum</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="username"
+            placeholder="Your name"
+            value={formData.username}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-olive-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-500"
+          />
+          <textarea
+            name="content"
+            placeholder="What's on your mind?"
+            value={formData.content}
+            onChange={handleChange}
+            rows={4}
+            className="w-full px-4 py-2 border border-olive-300 rounded-md focus:outline-none focus:ring-2 focus:ring-olive-500"
+          />
+          <input
+            type="file"
+            name="file"
+            onChange={handleChange}
+            className="w-full text-sm text-gray-600"
+          />
+          <button
+            type="submit"
+            className="w-full bg-olive-700 hover:bg-olive-800 text-white font-semibold py-2 px-4 rounded-md transition"
+          >
+            Post
+          </button>
+        </form>
 
-      <div className="media-posts">
-        {posts.map((post) => (
-          <div key={post.id} className="media-post animate-slide-in">
-            <h2 className="media-username">{post.username}</h2>
-            <p className="media-content">{post.content}</p>
-            {post.file && post.fileType?.startsWith('image') && (
-              <img src={post.file} alt="upload" className="media-upload" />
-            )}
-            {post.file && post.fileType?.startsWith('audio') && (
-              <audio controls className="media-upload">
-                <source src={post.file} type={post.fileType} />
-                Your browser does not support audio.
-              </audio>
-            )}
-            {post.file && post.fileType?.startsWith('video') && (
-              <video controls className="media-upload">
-                <source src={post.file} type={post.fileType} />
-                Your browser does not support video.
-              </video>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <form onSubmit={handleSubmit} className="media-form">
-        <input
-          type="text"
-          name="username"
-          placeholder="Screen Name"
-          value={formData.username}
-          onChange={handleChange}
-          className="media-input"
-        />
-        <textarea
-          ref={textareaRef}
-          name="content"
-          placeholder="Type your message here..."
-          value={formData.content}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          className="media-textarea"
-          rows={2}
-        />
-        <input
-          type="file"
-          name="file"
-          ref={fileInputRef}
-          onChange={handleChange}
-          className="media-file-input"
-        />
-        <div className="media-buttons">
-          <button type="submit" className="media-button">🚀 Blast Off</button>
-          <button type="button" className="media-button">📹 Video</button>
-          <button type="button" className="media-button">💬 DM</button>
+        <div className="mt-10 space-y-6">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="p-5 border border-olive-200 bg-olive-50 rounded-xl shadow-sm"
+            >
+              <h2 className="font-semibold text-olive-800">{post.username}</h2>
+              <p className="text-gray-800 whitespace-pre-wrap">{post.content}</p>
+              {post.file && renderFile(post.fileType, post.file, post.fileName)}
+            </div>
+          ))}
         </div>
-      </form>
+      </div>
     </div>
   );
 };

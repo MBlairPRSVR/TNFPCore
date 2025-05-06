@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import './Hero.css';
 
@@ -30,25 +29,11 @@ const Hero = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: 'easeOut' }}
-      className="hero-container"
-      id="home"
-    >
-      <div className="hero-overlay"></div>
-
+    <div className="hero-container" id="home">
       <div className="hero-content">
-        <motion.h1
-          className="hero-heading typewriter-heading"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-        >
+        <h1 className="hero-heading typewriter-heading">
           Welcome to TNFP Core
-        </motion.h1>
-
+        </h1>
         <div className="hero-buttons">
           <button
             className="hero-button admin-button"
@@ -63,7 +48,6 @@ const Hero = () => {
             Staff
           </button>
         </div>
-
         {showPasswordPrompt && (
           <div className="password-prompt">
             <input
@@ -78,7 +62,7 @@ const Hero = () => {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

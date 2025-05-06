@@ -1,129 +1,148 @@
-/* Volunteer Form Container */
-.volunteer-form-container {
-    padding: 40px 30px;
-    max-width: 600px;
-    margin: 60px auto;
-    background: linear-gradient(to bottom right, #ffffff, #f2f9ff);
-    border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-    animation: fadeInUp 0.8s ease forwards;
+/* Volunteer Card Container */
+.volunteer-card {
+  padding: 20px;
+  max-width: 480px;
+  margin: 40px auto;
+  background: #f9fbfd;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease forwards;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header */
+.volunteer-form-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 6px;
+}
+
+/* Nicer, bigger inputs */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  max-width: 300px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #dce1e7;
+  background-color: #ffffff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.3);
+}
+
+/* Submit Button - Updated to match About Page Button Style */
+.submit-btn {
+  padding: 14px 28px;
+  background-color: #f39c12;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px; /* Oval sides */
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  line-height: 1;
+  margin: 25px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1);
+  background-color: #e74c3c;
+}
+
+/* Thank You Message */
+.thank-you-message {
+  text-align: center;
+  padding: 16px;
+  color: #27ae60;
+  font-size: 1.3rem;
+  font-weight: 600;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Fade-In Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Header */
-  .volunteer-form-heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Form Group */
-  .form-group {
-    margin-bottom: 22px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .form-group label {
-    display: block;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #34495e;
-    margin-bottom: 8px;
+  to {
+    opacity: 1;
   }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 14px 16px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid #dce1e7;
-    background-color: #f8fafd;
-    transition: all 0.3s ease;
-    outline: none;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
-  }
-  
-  /* Button */
-  .submit-btn {
-    width: 100%;
-    padding: 16px;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(to right, #3498db, #2980b9);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .submit-btn:hover {
-    background: linear-gradient(to right, #2980b9, #2471a3);
-    transform: translateY(-2px);
-  }
-  
-  /* Thank You Message */
-  .thank-you-message {
-    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .volunteer-card {
     padding: 20px;
-    color: #27ae60;
-    font-size: 1.7rem;
-    font-weight: 600;
-    animation: fadeIn 1s ease forwards;
+    margin: 30px 10px;
+    overflow: visible;
   }
-  
-  /* Fade-In Animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .volunteer-form-heading {
+    font-size: 1.5rem;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 12px 24px;
   }
-  
-  /* Responsive */
-  @media (max-width: 480px) {
-    .volunteer-form-container {
-      padding: 30px 20px;
-    }
-  
-    .volunteer-form-heading {
-      font-size: 2rem;
-    }
-  
-    .submit-btn {
-      font-size: 1rem;
-    }
-  
-    .thank-you-message {
-      font-size: 1.3rem;
-    }
+
+  .thank-you-message {
+    font-size: 1.1rem;
   }
-  
-  .veggies-image {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto 30px;
-    display: block;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-  
+}
+
+/* Image Styling */
+.veggies-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 100px auto 20px;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

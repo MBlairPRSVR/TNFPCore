@@ -1,13 +1,10 @@
-/* Full About.css */
-
+/* About page CSS */
 .about-wrapper {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Animated background image */
 .background-image {
   background-image: url('../assets/tnfpgourmet.webp');
   background-size: cover;
@@ -21,7 +18,6 @@
   transition: background-position 2s ease-in-out, background-size 2s ease-in-out;
 }
 
-/* About container with overlay */
 .about-container {
   position: relative;
   z-index: 2;
@@ -31,11 +27,8 @@
   color: white;
   padding: 20px;
   min-height: 100vh;
-  opacity: 0;
-  animation: fadeInContent 2s ease-out forwards; /* Ensure easing works better */
 }
 
-/* Overlay */
 .about-container::after {
   content: '';
   position: absolute;
@@ -43,20 +36,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-/* Content above overlay */
 .about-content {
   text-align: center;
   z-index: 2;
   position: relative;
-  opacity: 0;
-  animation: fadeInContent 2s ease-out forwards 0.5s; /* Delay for staggered effect */
 }
 
-/* Heading styles */
 .about-heading {
   font-size: 4rem;
   font-weight: bold;
@@ -64,11 +53,8 @@
   color: white;
   letter-spacing: 3px;
   margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeInContent 2s ease-out forwards 1s; /* Slight delay */
 }
 
-/* Paragraph description styling */
 .about-description {
   font-size: 1.5rem;
   font-weight: 600;
@@ -77,11 +63,8 @@
   margin: 20px auto;
   line-height: 1.8;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  animation: fadeInContent 2s ease-out forwards 1.5s; /* Delay for staggered effect */
 }
 
-/* Button styling */
 .about-button {
   margin-top: 30px;
   padding: 12px 25px;
@@ -90,13 +73,11 @@
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px; /* Oval sides */
   cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  opacity: 0;
-  animation: fadeInContent 2s ease-out forwards 2s; /* Delay for staggered effect */
 }
 
 .about-button:hover {
@@ -130,27 +111,5 @@
 
   .about-button {
     padding: 8px 15px;
-  }
-}
-
-/* Keyframes for smooth fade-in animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Keyframes for content fade-in */
-@keyframes fadeInContent {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

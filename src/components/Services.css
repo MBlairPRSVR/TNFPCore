@@ -1,319 +1,96 @@
-/* Global Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Entire Page Background with Olive Garden Green */
 body {
-  @apply bg-olive-lava text-white min-h-screen;
-  background-size: 400% 400%;
-  animation: lava 20s ease infinite;
-  font-family: 'Arial', sans-serif;
-  color: #fff;
+  background-color: #6B8E23; /* Olive Green */
   margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: white; /* Set default text color to white for contrast */
 }
 
-/* Container for the Menu Maker */
-.menu-maker-container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.menu-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #4a4a4a;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
-
-/* Horizontal Layout for Days */
-.menu-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.menu-day {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.menu-day-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  color: #333;
-}
-
-.menu-day-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1.1rem;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  height: 120px;
-  resize: none;
-  transition: border-color 0.3s ease;
-}
-
-.menu-day-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Button styles */
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.submit-btn,
-.print-btn {
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.submit-btn {
-  background-color: #28a745;
-  color: white;
-}
-
-.submit-btn:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
-}
-
-.print-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.print-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-/* Menu Preview Section Styles */
-.menu-preview {
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.menu-preview h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-weight: bold;
-}
-
-.menu-preview-item {
-  margin-bottom: 1rem;
-}
-
-.menu-preview-item h3 {
-  font-size: 1.5rem;
-  color: #007bff;
-  font-weight: bold;
-}
-
-.menu-preview-item p {
-  font-size: 1.1rem;
-  color: #666;
-  font-style: italic;
-}
-
-/* Print Page Style */
-@media print {
-  body {
-    font-size: 16px;
-    background-color: white;
-    color: black;
-  }
-
-  .menu-maker-container {
-    box-shadow: none;
-    padding: 1rem;
-    margin: 0;
-  }
-
-  .menu-preview {
-    padding: 1rem;
-  }
-
-  .submit-btn,
-  .print-btn {
-    display: none;
-  }
-}
-
-/* Services Section */
-.services-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  text-align: center;
+/* Overlay content styling */
+.overlay-content {
   position: relative;
-  overflow: hidden;
-  color: white;
-  animation: backgroundPulse 6s ease-in-out infinite;
-  background: none; /* Remove background to let body background show */
-  flex-grow: 1; /* Ensure full height is used */
-}
-
-/* Background Pulse Animation */
-@keyframes backgroundPulse {
-  0% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  50% {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-}
-
-/* Title Animation */
-.services-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: #fff;
-  margin-bottom: 40px;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5);
-  font-weight: 800;
-  z-index: 2;
-  animation: titleAnimation 1s ease-out forwards;
-}
-
-/* Title Entrance Animation */
-@keyframes titleAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Carousel Wrapper Animation */
-.carousel-wrapper {
   width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  box-sizing: border-box;
+  text-align: center;
   z-index: 2;
-  animation: carouselFadeIn 1s ease-out forwards;
+  padding: 40px 20px;
 }
 
-/* Carousel Fade-In Animation */
-@keyframes carouselFadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Title */
+.services-title {
+  font-size: 3rem; /* Large title */
+  color: white;
+  font-weight: 600;
+  margin-bottom: 40px;
 }
 
-/* Service Card Styles */
+/* Carousel Styling */
+.carousel-wrapper {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .service-card {
-  background: rgba(0, 0, 0, 0.75);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-  color: #fff;
-  max-width: 600px;
-  margin: 20px auto;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
-  animation: cardEnter 0.6s ease-out forwards;
-}
-
-/* Service Card Entrance Animation */
-@keyframes cardEnter {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Service Card Hover Effect */
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 0, 150, 0.9);
+  background-color: #D1E1B6; /* Light Olive Green */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  font-size: 1.5rem;
+  color: #2c3e50;
 }
 
 .service-card p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+/* CTA Button */
+.access-community-board-btn {
+  margin-top: 40px;
+}
+
+.access-community-board {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #f39c12; /* Olive Green Button */
+  color: white;
   font-size: 1rem;
-  color: #d3d3d3;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
-
-.service-card:hover p {
-  color: #fff;
-}
-
-/* Service Button Styles */
-.service-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 25px;
-  background-color: #FF1493;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
   font-weight: bold;
-  letter-spacing: 1px;
-  box-shadow: 0 6px 18px rgba(255, 0, 150, 0.4);
+  border: none;
+  border-radius: 50px; /* Oval sides */
+  cursor: pointer;
   text-transform: uppercase;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.service-button:hover {
-  background-color: #FF00FF;
-  transform: scale(1.1);
+.access-community-board:hover {
+  transform: scale(1.1); /* Slightly scale up on hover */
+  background-color: #e74c3c; /* Change background on hover */
+}
+
+/* Container styling */
+.services-container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Background Image */
+.background-image {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
